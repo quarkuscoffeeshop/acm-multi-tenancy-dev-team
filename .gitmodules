@@ -1,6 +1,0 @@
-[submodule "overlay/dev/acm-poc-devteam1-charts"]
-	path = overlay/dev/acm-poc-devteam1-charts
-	url = https://github.com/vladimir-babichev/acm-poc-devteam1-charts.git
-[submodule "base/acm-poc-devteam1-charts"]
-	path = base/acm-poc-devteam1-charts
-	url = https://github.com/vladimir-babichev/acm-poc-devteam1-charts.git
