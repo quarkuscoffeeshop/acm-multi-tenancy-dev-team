@@ -1,2 +1,3 @@
 generators:
 - metrics-app.yaml
+- cloudprober.yaml

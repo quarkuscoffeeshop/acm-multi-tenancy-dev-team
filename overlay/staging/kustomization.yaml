@@ -1,3 +1,8 @@
 namePrefix:  staging-
 resources:
   - ../../base
+replicas:
+- name: staging-sampleapp-metrics-app
+  count: 3
+- name: staging-sampleapp-cloudprober
+  count: 3
