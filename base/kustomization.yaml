@@ -1,3 +1,11 @@
+patchesJson6902:
+- target:
+    version: v1
+    kind: Deployment
+    name: cloudprober
+  patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 0
 resources:
-- namespace.yaml
-- metrics-app.yaml
+- acm-poc-devteam1-charts/charts/cloudprober/templates/deployment.yaml
