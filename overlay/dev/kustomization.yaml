@@ -1,4 +1,27 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
+namePrefix:  dev-
+resources:
   - ../../base
+patchesJson6902:
+- target:
+    version: v1
+    kind: HelmChartInflationGenerator
+    name: metrics-app
+  patch: |-
+    - op: replace
+      path: /values
+      value: "overlay/dev/metrics-app/values.yaml"
+- target:
+    version: v1
+    kind: HelmChartInflationGenerator
+    name: cloudprober-app
+  patch: |-
+    - op: replace
+      path: /values
+      value: "overlay/dev/cloudprober/values.yaml"
+replicas:
+- name: dev-sampleapp-metrics-app
+  count: 1
+- name: dev-sampleapp-cloudprober
+  count: 2

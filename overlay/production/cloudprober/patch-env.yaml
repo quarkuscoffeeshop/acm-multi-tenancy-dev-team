@@ -1,7 +1,0 @@
-apiVersion: builtin
-kind: HelmChartInflationGenerator
-metadata:
-  name: cloudprober
-chartName: cloudprober
-chartVersion:  0.2.0
-values: ../overlay/production/cloudprober/values.yaml

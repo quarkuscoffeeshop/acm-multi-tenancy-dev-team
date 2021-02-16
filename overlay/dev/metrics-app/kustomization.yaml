@@ -1,9 +1,0 @@
-resources:
-- values.yaml
-patchesStrategicMerge:
-  - patch-env.yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-images:
-- name: quay.io/quarkuscoffeeshop/quarkuscoffeeshop-barista
-  newTag: 5.0.0-SNAPSHOT

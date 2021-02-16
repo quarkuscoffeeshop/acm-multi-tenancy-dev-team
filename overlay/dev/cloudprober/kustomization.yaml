@@ -1,4 +1,0 @@
-resources:
-- cloudprober.yaml
-patchesStrategicMerge:
-  - patch-env.yaml
