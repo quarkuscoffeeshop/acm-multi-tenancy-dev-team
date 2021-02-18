@@ -1,0 +1,28 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: acm-poc-devteam1-gitops-app
+  namespace: acm-poc-devteam1-gitops
+  labels:
+    app: cloudprober
+spec:
+  channel: acm-poc-devteam1-gitops/acm-poc-devteam1-gitops-channel
+  name: cloudprober
+  packageFilter:
+    version: "0.1.0"
+  placement:
+    clusters:
+    - name: cluster-1
+  packageOverrides:
+  - packageName: cloudprober
+    packageOverrides:
+      - path: spec
+        value:
+          replicaCount: 2
+          ingress:
+            annotations:
+              kubernetes.io/ingress.class: nginx
+            enabled: true
+            hosts:
+              - host: cloudprober.dev
+                paths: ["/"]
