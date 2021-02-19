@@ -19,6 +19,6 @@ spec:
     packageOverrides:
       - path: spec
         value:
-          replicaCount: 2
+          replicaCount: 3
           ingress:
             enabled: false
