@@ -1,5 +1,5 @@
 # ACM Multi Tenancy dev team repo
-
+See management repo [acm-multi-tenancy](https://github.com/tosin2013/acm-multi-tenancy).
 
 ## Enviornments
 
