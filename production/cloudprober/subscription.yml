@@ -1,7 +1,7 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
-  name: cloudprober
+  name: cloudprober-prod
   namespace: acm-poc-devteam1-gitops
   labels:
     app: acm-poc-devteam1-gitops-app
@@ -13,7 +13,7 @@ spec:
   placement:
     placementRef:
       kind: PlacementRule
-      name: towhichcluster
+      name: prodcluster
   packageOverrides:
   - packageName: cloudprober
     packageOverrides:
