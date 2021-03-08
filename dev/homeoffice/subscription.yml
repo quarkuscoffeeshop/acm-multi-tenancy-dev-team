@@ -1,13 +1,13 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
-  name: cloudprober-dev
+  name: metrics-app-dev
   namespace: acm-poc-devteam1-gitops
   labels:
     app: acm-poc-devteam1-gitops-app
 spec:
   channel: acm-poc-devteam1-gitops/acm-poc-devteam1-gitops-channel
-  name: cloudprober
+  name: metrics-app
   packageFilter:
     version: "0.1.0"
   placement:
@@ -15,15 +15,13 @@ spec:
       kind: PlacementRule
       name: devcluster
   packageOverrides:
-  - packageName: cloudprober
+  - packageName: metrics-app
     packageOverrides:
       - path: spec
-        value:
-          replicaCount: 3
-          ingress:
-            annotations:
-              kubernetes.io/ingress.class: nginx
-            enabled: true
-            hosts:
-              - host: cloudprober.dev
-                paths: ["/"]
+        version:
+          barista:  5.0.0-SNAPSHOT
+          counter:  5.0.1-SNAPSHOT
+          customermocker:  5.0.1-SNAPSHOT
+          inventory: 5.0.0-SNAPSHOT
+          kitchen:  5.0.0-SNAPSHOT
+          web:  5.0.3-SNAPSHOT
