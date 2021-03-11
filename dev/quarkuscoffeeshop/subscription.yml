@@ -2,11 +2,11 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
   name: quarkuscoffeeshop-app-dev
-  namespace: quarkuscoffeeshop-changeme-gitops
+  namespace: quarkuscoffeeshop-devteam2-gitops
   labels:
-    app: quarkuscoffeeshop-changeme-gitops-app
+    app: quarkuscoffeeshop-devteam2-gitops-app
 spec:
-  channel: quarkuscoffeeshop-changeme-gitops/quarkuscoffeeshop-changeme-gitops-channel
+  channel: quarkuscoffeeshop-devteam2-gitops/quarkuscoffeeshop-devteam2-gitops-channel
   name: quarkuscoffeeshop-charts
   packageFilter:
     version: "3.4.8"
@@ -19,6 +19,7 @@ spec:
     packageOverrides:
       - path: spec
         value:
+          projectnamespace: quarkuscoffeeshop-devteam1-gitops
           domain: ocp4.example.com
           version:
             barista:  5.0.0-SNAPSHOT
@@ -31,13 +32,13 @@ spec:
             barista: 1
             kitchen: 1
             inventory: 1
-            counter: 1
-            customermocker: 1
-            web: 1
+            counter: 0
+            customermocker: 0
+            web: 0
           kafka_cluster_name: cafe-cluster
           pgsql_url: 'jdbc:postgresql://coffeeshopdb:5432/coffeeshopdb?currentSchema=coffeeshop'
           pgsql_username: coffeshopadmin
           pgsql_password: 'changepassword'
-          storeid: DEV
+          storeid: ATLANTA
           quarkus_log_level: INFO
           quarkuscoffeeshop_log_level: DEBUG

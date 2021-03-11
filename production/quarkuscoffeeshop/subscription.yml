@@ -1,7 +1,7 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
-  name: quarkuscoffeeshop-app-dev
+  name: quarkuscoffeeshop-app-production
   namespace: quarkuscoffeeshop-devteam1-gitops
   labels:
     app: quarkuscoffeeshop-devteam1-gitops-app

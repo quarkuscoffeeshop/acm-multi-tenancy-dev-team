@@ -10,13 +10,13 @@ See management repo [acm-multi-tenancy](https://github.com/quarkuscoffeeshop/acm
 **This is in reference to the configuration [dev-team-1](https://github.com/tosin2013/acm-multi-tenancy#commands-for-dev-team-1) in the [ACM SRE GitRepo](https://github.com/tosin2013/acm-multi-tenancy)**
 ```
 # Dev environment
-$ sed -i 's/changeme/devteam1/g'  dev/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam1/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
-$ sed -i 's/changeme/devteam1/g' staging/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam1/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
-$ sed -i 's/changeme/devteam1/g' prod/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam1/g' prod/quarkuscoffeeshop/subscription.yml
 
 ```
 
@@ -24,13 +24,13 @@ $ sed -i 's/changeme/devteam1/g' prod/quarkuscoffeeshop/subscription.yml
 **This is in reference to the configuration [dev-team-2](https://github.com/tosin2013/acm-multi-tenancy#commands-for-dev-team-2) in the [ACM SRE GitRepo](https://github.com/tosin2013/acm-multi-tenancy)**
 ```
 # Dev environment
-$ sed -i 's/changeme/devteam2/g'  dev/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam2/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
-$ sed -i 's/changeme/devteam2/g' staging/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam2/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
-$ sed -i 's/changeme/devteam2/g' prod/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam2/g' prod/quarkuscoffeeshop/subscription.yml
 
 ```
 
@@ -38,14 +38,25 @@ $ sed -i 's/changeme/devteam2/g' prod/quarkuscoffeeshop/subscription.yml
 **This is in reference to the configuration [dev-team-3](https://github.com/tosin2013/acm-multi-tenancy#commands-for-dev-team-3) in the [ACM SRE GitRepo](https://github.com/tosin2013/acm-multi-tenancy)**
 ```
 # Dev environment
-$ sed -i 's/changeme/devteam3/g'  dev/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam3/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
-$ sed -i 's/changeme/devteam3/g' staging/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam3/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
-$ sed -i 's/changeme/devteam3/g' prod/quarkuscoffeeshop/subscription.yml
+$ sed -i '' -e 's/changeme/devteam3/g' prod/quarkuscoffeeshop/subscription.yml
+```
 
+# To Reset values
+```
+# Dev environment
+$ sed -i '' -e 's/devteam[0-9]/changeme/g'  dev/quarkuscoffeeshop/subscription.yml
+
+# Staging environment
+$ sed -i '' -e 's/devteam[0-9]/changeme/g' staging/quarkuscoffeeshop/subscription.yml
+
+# Prod environment
+$ sed -i '' -e 's/devteam[0-9]/changeme/g' prod/quarkuscoffeeshop/subscription.yml
 ```
 
 ## Enviornments
