@@ -19,6 +19,7 @@ spec:
     packageOverrides:
       - path: spec
         value:
+          projectnamespace: quarkuscoffeeshop-devteam1-gitops
           domain: ocp4.example.com
           version:
             barista:  5.0.0-SNAPSHOT
