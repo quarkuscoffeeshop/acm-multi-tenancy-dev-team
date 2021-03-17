@@ -33,6 +33,7 @@ spec:
             barista: 1
             kitchen: 1
             inventory: 1
+            customerloyalty: 1
             counter: 1
             customermocker: 1
             web: 1

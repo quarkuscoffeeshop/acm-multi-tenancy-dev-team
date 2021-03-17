@@ -52,35 +52,33 @@ $ echo "Staging environment: $(oc --context=prod  get ingresses.config.openshift
 $ DOMAIN=$(oc --context=prod  get ingresses.config.openshift.io cluster -o jsonpath='{ .spec.domain }' | sed 's/apps.//')
 $ sed  -i  "s/ocp4.example.com/${DOMAIN}/g"  prod/quarkuscoffeeshop/subscription.yml
 ```
-## Update Postgres passwords
-```
-POSTGRES_DEVTEAM1='CHANGEPASSWORD'
-POSTGRES_DEVTEAM2='CHANGEPASSWORD'
-POSTGRES_DEVTEAM3='CHANGEPASSWORD'
-CLUSTER_ENV=dev #staging, prod
-
-sed -i "s|'changepassword'|'${POSTGRES_DEVTEAM1}'|g" ${CLUSTER_ENV}/quarkuscoffeeshop/subscription.yml
-cat staging/quarkuscoffeeshop/subscription.yml
 
 
-sed -i "s|'changepassword'|'${POSTGRES_DEVTEAM2}'|g" ${CLUSTER_ENV}/quarkuscoffeeshop/subscription.yml
-cat staging/quarkuscoffeeshop/subscription.yml
-
-sed -i "s|'changepassword'|'${POSTGRES_DEVTEAM3}'|g" ${CLUSTER_ENV}/quarkuscoffeeshop/subscription.yml
-cat prod/quarkuscoffeeshop/subscription.yml
-```
-
-##  Update devteam name
+##  Update devteam and database info
 ### Commands for dev-team-1
 **This is in reference to the configuration [dev-team-1](https://github.com/tosin2013/acm-multi-tenancy#commands-for-dev-team-1) in the [ACM SRE GitRepo](https://github.com/tosin2013/acm-multi-tenancy)**
 ```
+$ CLUSTER_ENV=dev  #ex. staging, prod # password will be different for different envs
+$ POSTGRES_DEVTEAM1='CHANGEPASSWORD'
+$ sed -i "s|'changepassword'|'${POSTGRES_DEVTEAM1}'|g" ${CLUSTER_ENV}/quarkuscoffeeshop/subscription.yml
+$ cat staging/quarkuscoffeeshop/subscription.yml
+
 # Dev environment
+$ sed -i 's/changeme/devteam1/g'  dev/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/changeme/devteam1/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
+$ sed -i  's/changeme/devteam1/g' staging/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/changeme/devteam1/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
+$ sed -i  's/changeme/devteam1/g' prod/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/changeme/devteam1/g' prod/quarkuscoffeeshop/subscription.yml
 
 ```
@@ -88,13 +86,24 @@ $ sed -i '' -e 's/changeme/devteam1/g' prod/quarkuscoffeeshop/subscription.yml
 ### Commands for dev-team-2
 **This is in reference to the configuration [dev-team-2](https://github.com/tosin2013/acm-multi-tenancy#commands-for-dev-team-2) in the [ACM SRE GitRepo](https://github.com/tosin2013/acm-multi-tenancy)**
 ```
+$ CLUSTER_ENV=dev  #ex. staging, prod # password will be different for different envs
+$ POSTGRES_DEVTEAM2='CHANGEPASSWORD'
+$ sed -i "s|'changepassword'|'${POSTGRES_DEVTEAM2}'|g" ${CLUSTER_ENV}/quarkuscoffeeshop/subscription.yml
+$ cat staging/quarkuscoffeeshop/subscription.yml
+
 # Dev environment
+$ sed -i  's/changeme/devteam2/g'  dev/quarkuscoffeeshop/subscription.yml
+## On MAC
 $ sed -i '' -e 's/changeme/devteam2/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
+$ sed -i 's/changeme/devteam2/g' staging/quarkuscoffeeshop/subscription.yml
+## On MAC
 $ sed -i '' -e 's/changeme/devteam2/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
+$ sed -i 's/changeme/devteam2/g' prod/quarkuscoffeeshop/subscription.yml
+## On MAC
 $ sed -i '' -e 's/changeme/devteam2/g' prod/quarkuscoffeeshop/subscription.yml
 
 ```
@@ -102,25 +111,48 @@ $ sed -i '' -e 's/changeme/devteam2/g' prod/quarkuscoffeeshop/subscription.yml
 ### Commands for dev-team-3
 **This is in reference to the configuration [dev-team-3](https://github.com/tosin2013/acm-multi-tenancy#commands-for-dev-team-3) in the [ACM SRE GitRepo](https://github.com/tosin2013/acm-multi-tenancy)**
 ```
+$ CLUSTER_ENV=dev  #ex. staging, prod # password will be different for different envs
+$ POSTGRES_DEVTEAM3='CHANGEPASSWORD'
+$ sed -i "s|'changepassword'|'${POSTGRES_DEVTEAM3}'|g" ${CLUSTER_ENV}/quarkuscoffeeshop/subscription.yml
+$ cat prod/quarkuscoffeeshop/subscription.yml
+
 # Dev environment
+$ sed -i 's/changeme/devteam3/g' dev/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/changeme/devteam3/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
+$ sed -i 's/changeme/devteam3/g' staging/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/changeme/devteam3/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
+$ sed -i 's/changeme/devteam3/g' prod/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/changeme/devteam3/g' prod/quarkuscoffeeshop/subscription.yml
 ```
 
 # To Reset values
 ```
 # Dev environment
+$ sed -i 's/devteam[0-9]/changeme/g'  dev/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/devteam[0-9]/changeme/g'  dev/quarkuscoffeeshop/subscription.yml
 
 # Staging environment
+$ sed -i 's/devteam[0-9]/changeme/g' staging/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/devteam[0-9]/changeme/g' staging/quarkuscoffeeshop/subscription.yml
 
 # Prod environment
+$ sed -i 's/devteam[0-9]/changeme/g' prod/quarkuscoffeeshop/subscription.yml
+
+## On MAC
 $ sed -i '' -e 's/devteam[0-9]/changeme/g' prod/quarkuscoffeeshop/subscription.yml
 ```
 
@@ -128,19 +160,37 @@ $ sed -i '' -e 's/devteam[0-9]/changeme/g' prod/quarkuscoffeeshop/subscription.y
 
 ### Dev
 ```
-oc create -f dev/quarkuscoffeeshop/subscription.yml
+oc --context=hubcluster create -f dev/quarkuscoffeeshop/subscription.yml
 ```
 
 ### Staging
 ```
-oc create -f staging/quarkuscoffeeshop/subscription.yml
+oc --context=hubcluster create -f staging/quarkuscoffeeshop/subscription.yml
 ```
 
 ### Prod
 ```
-oc create -f prod/quarkuscoffeeshop/subscription.yml
+oc --context=hubcluster create -f prod/quarkuscoffeeshop/subscription.yml
 ```
 
+### expose route on Hub Clusters
+**For devteam1**
+```
+$ CLUSTER_ENV=dev  #ex. staging, prod 
+$ oc --context=${CLUSTER_ENV} expose svc/quarkuscoffeeshop-web -n quarkuscoffeeshop-devteam1-gitops
+```
+
+**For devteam2**
+```
+$ CLUSTER_ENV=dev  #ex. staging, prod 
+$ oc --context=${CLUSTER_ENV} expose svc/quarkuscoffeeshop-web -n quarkuscoffeeshop-devteam2-gitops
+```
+
+**For devteam3**
+```
+$ CLUSTER_ENV=dev  #ex. staging, prod 
+$ oc --context=${CLUSTER_ENV} expose svc/quarkuscoffeeshop-web -n quarkuscoffeeshop-devteam3-gitops
+```
 
 ### To-Do
 ```
