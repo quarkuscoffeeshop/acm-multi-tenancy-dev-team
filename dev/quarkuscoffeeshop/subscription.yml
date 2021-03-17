@@ -9,7 +9,7 @@ spec:
   channel: quarkuscoffeeshop-devteam1-gitops/quarkuscoffeeshop-devteam1-gitops-channel
   name: quarkuscoffeeshop-charts
   packageFilter:
-    version: "3.4.8"
+    version: "3.5.0"
   placement:
     placementRef:
       kind: PlacementRule
@@ -27,6 +27,7 @@ spec:
             customermocker:  5.0.1-SNAPSHOT
             inventory: 5.0.0-SNAPSHOT
             kitchen:  5.0.0-SNAPSHOT
+            customerloyalty: 5.0.1-SNAPSHOT
             web:  5.0.3-SNAPSHOT
           replica_count:
             barista: 1
