@@ -1,3 +1,6 @@
+# Docs
+Please see the Github Pages Site for complete documentation: [quarkuscoffeeshop.github.io](https://quarkuscoffeeshop.github.io)
+
 # ACM Multi Tenancy dev team repo
 See management repo [acm-multi-tenancy](https://github.com/quarkuscoffeeshop/acm-multi-tenancy).
 
